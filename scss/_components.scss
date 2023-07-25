@@ -1,0 +1,195 @@
+@use "./base" as *;
+
+/* ///////////////// CTA BUTTON ///////////////// */
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  border-radius: 15px;
+  background: $gradient-primary;
+  color: hsl(0, 0%, 100%);
+  box-shadow: 0px 5px 20px rgba(124, 103, 255, 0.3);
+  font-weight: 500;
+  transition: opacity 200ms ease;
+
+  &:visited {
+    color: hsl(0, 0%, 100%);
+  }
+
+  @include on-event {
+    opacity: 0.8;
+  }
+
+  &--secondary {
+    background: none;
+    border: 1px solid hsl(0, 0%, 0%, 0.9);
+    box-shadow: none;
+    color: hsl(0, 0%, 0%, 0.9);
+    transition: background-color 200ms ease, border-color 200ms ease;
+
+    &:visited {
+      color: hsl(0, 0%, 0%, 0.9);
+    }
+
+    @include on-event {
+      opacity: 1;
+      border-color: hsl(0, 0%, 100%);
+      background-color: hsl(0, 0%, 100%);
+      color: hsl(0, 0%, 0%, 0.9);
+    }
+  }
+}
+
+/* ///////////////// ABOUT PHOTO ///////////////// */
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes grow {
+  from {
+    scale: 0;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+.anim-photo {
+  display: grid;
+  place-items: center;
+  width: min(100%, 400px);
+  height: auto;
+  padding: 16px;
+  overflow: hidden;
+
+  &__outer-ring-wrapper,
+  &__inner-ring-wrapper,
+  &__photo-wrapper {
+    width: 100%;
+    height: auto;
+    grid-area: 1 / 1;
+  }
+
+  &__outer-ring-wrapper,
+  &__inner-ring-wrapper {
+    position: relative;
+    display: grid;
+    place-items: center;
+    backface-visibility: hidden;
+  }
+
+  &__outer-ring-wrapper {
+    animation: grow 600ms both ease-out, rotate 70s linear infinite;
+
+  }
+
+  &__inner-ring-wrapper {
+    animation: grow 600ms 150ms both ease-out, rotate 70s linear infinite reverse;
+  }
+
+  &__outer-ring {
+    width: 100%;
+    height: auto;
+  }
+
+  &__inner-ring {
+    width: calc(100% - 15%);
+    height: auto;
+  }
+
+  &__icon {
+    position: absolute;
+    z-index: 2;
+    width: 10%;
+    height: 10%;
+  }
+
+  &__icon:nth-of-type(1) {
+    top: 0;
+    left: 0;
+    translate: 100% 100%;
+    animation: fadeIn 2s 600ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(2) {
+    top: 0;
+    left: 50%;
+    translate: -50% -50%;
+    animation: fadeIn 2s 800ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(3) {
+    top: 0;
+    right: 0;
+    translate: -100% 100%;
+    animation: fadeIn 2s 1000ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(4) {
+    top: 50%;
+    right: 0;
+    translate: 50% -50%;
+    animation: fadeIn 2s 1200ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(5) {
+    bottom: 0;
+    right: 0;
+    translate: -100% -100%;
+    animation: fadeIn 2s 1400ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(6) {
+    bottom: 0;
+    left: 50%;
+    translate: -50% 50%;
+    animation: fadeIn 2s 1600ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(7) {
+    bottom: 0;
+    left: 0;
+    translate: 100% -100%;
+    animation: fadeIn 2s 1800ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__icon:nth-of-type(8) {
+    top: 50%;
+    left: 0;
+    translate: -50% -50%;
+    animation: fadeIn 2s 2000ms ease both, rotate 70s linear infinite reverse;
+  }
+
+  &__photo-wrapper {
+    width: calc(100% - 30%);
+    border-radius: 99999px;
+    padding: 2px;
+    overflow: hidden;
+    background: $gradient-primary;
+    z-index: 2;
+  }
+
+  &__photo {
+    width: 100%;
+    height: auto;
+    border-radius: 99999px;
+  }
+}
