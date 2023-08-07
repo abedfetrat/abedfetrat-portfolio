@@ -25,7 +25,11 @@
   transition: background-color 180ms ease;
 
   @include bp-up("medium") {
-    top: 32px;
+    top: 8px;
+  }
+
+  @include bp-up("large") {
+    top: 16px;
   }
 
   .container {
@@ -36,7 +40,7 @@
 
   &__logo {
     user-select: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.2em;
     background: $gradient-primary;
@@ -45,7 +49,7 @@
     -webkit-text-fill-color: transparent;
 
     @include bp-up("medium") {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
@@ -110,19 +114,19 @@
   }
 
   &__heading {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
-
+    line-height: 1.4;
 
     @include bp-up("medium") {
-      font-size: 40px;
+      font-size: 36px;
     }
 
     span {
-      font-size: 18px;
+      font-size: 16px;
 
       @include bp-up("medium") {
-        font-size: 24px;
+        font-size: 22px;
       }
 
     }
@@ -149,7 +153,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 16px;
-    margin-top: 48px;
+    margin-top: 40px;
 
     @include bp-up("medium") {
       flex-direction: row;

@@ -95,7 +95,9 @@ $breakpoints: (
     @media screen and (min-width: map.get($breakpoints, $bp)) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media screen and (min-width: $bp) {
       @content;
     }
@@ -103,6 +105,7 @@ $breakpoints: (
 }
 
 @mixin on-event {
+
   &:hover,
   &:focus,
   &:active {
@@ -113,6 +116,7 @@ $breakpoints: (
 /* ///////////////// GlOBAL STYLES ///////////////// */
 body {
   font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
   color: hsl(0, 0%, 0%, 0.9);
   background-image: url("assets/background.png");
   background-size: cover;
@@ -120,7 +124,7 @@ body {
   background-repeat: no-repeat;
 
   @include bp-up("medium") {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
