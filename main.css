@@ -110,6 +110,7 @@ a:visited {
 .main {
   min-height: 100vh;
   height: 100%;
+  overflow: hidden;
 }
 
 .container {
@@ -337,91 +338,127 @@ a:visited {
   width: min(100%, 300px);
   height: auto;
   padding: 16px;
-  overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   .anim-photo {
     width: min(100%, 360px);
   }
 }
-.anim-photo__outer-ring-wrapper, .anim-photo__inner-ring-wrapper, .anim-photo__photo-wrapper {
+.anim-photo:hover *,
+.anim-photo:hover * > *, .anim-photo:focus *,
+.anim-photo:focus * > *, .anim-photo:active *,
+.anim-photo:active * > * {
+  animation-play-state: paused !important;
+}
+.anim-photo > * {
   width: 100%;
   height: auto;
   grid-area: 1/1;
 }
-.anim-photo__outer-ring-wrapper, .anim-photo__inner-ring-wrapper {
+.anim-photo__icons {
   position: relative;
-  display: grid;
-  place-items: center;
-  backface-visibility: hidden;
+  z-index: 3;
+  height: 100%;
+  animation: rotate 70s linear infinite;
 }
-.anim-photo__outer-ring-wrapper {
-  animation: grow 600ms both ease-out, rotate 70s linear infinite;
-}
-.anim-photo__inner-ring-wrapper {
-  animation: grow 600ms 150ms both ease-out, rotate 70s linear infinite reverse;
-}
-.anim-photo__outer-ring {
-  width: 100%;
-  height: auto;
-}
-.anim-photo__inner-ring {
-  width: 85%;
-  height: auto;
-}
-.anim-photo__icon {
+.anim-photo__icon-wrapper {
   position: absolute;
-  z-index: 2;
   width: 10%;
   height: 10%;
+  /* Counter rotate */
+  animation: rotate 70s linear infinite reverse;
+  transition: scale 200ms ease;
 }
-.anim-photo__icon:nth-of-type(1) {
+.anim-photo__icon-wrapper .anim-photo__icon-tooltip {
+  opacity: 0;
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 6px;
+  padding: 4px 12px;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 200ms ease;
+}
+.anim-photo__icon-wrapper .anim-photo__icon-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+@media screen and (min-width: 768px) {
+  .anim-photo__icon-wrapper .anim-photo__icon-tooltip {
+    font-size: 14px;
+    padding: 4px 15px;
+  }
+}
+.anim-photo__icon-wrapper:hover .anim-photo__icon-tooltip, .anim-photo__icon-wrapper:focus .anim-photo__icon-tooltip, .anim-photo__icon-wrapper:active .anim-photo__icon-tooltip {
+  opacity: 1;
+}
+.anim-photo__icon-wrapper:nth-of-type(1) {
   top: 0;
   left: 0;
   translate: 100% 100%;
   animation: fadeIn 2s 600ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(2) {
+.anim-photo__icon-wrapper:nth-of-type(2) {
   top: 0;
   left: 50%;
   translate: -50% -50%;
   animation: fadeIn 2s 800ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(3) {
+.anim-photo__icon-wrapper:nth-of-type(3) {
   top: 0;
   right: 0;
   translate: -100% 100%;
   animation: fadeIn 2s 1000ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(4) {
+.anim-photo__icon-wrapper:nth-of-type(4) {
   top: 50%;
   right: 0;
   translate: 50% -50%;
   animation: fadeIn 2s 1200ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(5) {
+.anim-photo__icon-wrapper:nth-of-type(5) {
   bottom: 0;
   right: 0;
   translate: -100% -100%;
   animation: fadeIn 2s 1400ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(6) {
+.anim-photo__icon-wrapper:nth-of-type(6) {
   bottom: 0;
   left: 50%;
   translate: -50% 50%;
   animation: fadeIn 2s 1600ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(7) {
+.anim-photo__icon-wrapper:nth-of-type(7) {
   bottom: 0;
   left: 0;
   translate: 100% -100%;
   animation: fadeIn 2s 1800ms ease both, rotate 70s linear infinite reverse;
 }
-.anim-photo__icon:nth-of-type(8) {
+.anim-photo__icon-wrapper:nth-of-type(8) {
   top: 50%;
   left: 0;
   translate: -50% -50%;
   animation: fadeIn 2s 2000ms ease both, rotate 70s linear infinite reverse;
+}
+.anim-photo__outer-ring, .anim-photo__inner-ring {
+  backface-visibility: hidden;
+}
+.anim-photo__outer-ring {
+  animation: grow 600ms both ease-out, rotate 70s linear infinite;
+}
+.anim-photo__inner-ring {
+  width: 85%;
+  animation: grow 600ms 150ms both ease-out, rotate 70s linear infinite reverse;
 }
 .anim-photo__photo-wrapper {
   width: 70%;
