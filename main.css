@@ -42,7 +42,8 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -149,7 +150,9 @@ a:visited {
   align-items: center;
 }
 .primary-nav__logo {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -165,11 +168,13 @@ a:visited {
 }
 .primary-nav__links {
   display: flex;
-  column-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 @media screen and (min-width: 768px) {
   .primary-nav__links {
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
 }
 .primary-nav__links a {
@@ -260,7 +265,8 @@ a:visited {
 @media screen and (min-width: 768px) {
   .about__ctas {
     flex-direction: row;
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
   .about__ctas .cta {
     width: 100%;
@@ -369,6 +375,9 @@ a:visited {
   animation: rotate 70s linear infinite reverse;
   transition: scale 200ms ease;
 }
+.anim-photo__icon-wrapper .anim-photo__icon {
+  transition: scale 200ms ease;
+}
 .anim-photo__icon-wrapper .anim-photo__icon-tooltip {
   opacity: 0;
   position: absolute;
@@ -398,6 +407,9 @@ a:visited {
     font-size: 14px;
     padding: 4px 15px;
   }
+}
+.anim-photo__icon-wrapper:hover .anim-photo__icon, .anim-photo__icon-wrapper:focus .anim-photo__icon, .anim-photo__icon-wrapper:active .anim-photo__icon {
+  transform: scale(1.25);
 }
 .anim-photo__icon-wrapper:hover .anim-photo__icon-tooltip, .anim-photo__icon-wrapper:focus .anim-photo__icon-tooltip, .anim-photo__icon-wrapper:active .anim-photo__icon-tooltip {
   opacity: 1;
