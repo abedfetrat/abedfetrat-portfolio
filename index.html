@@ -1,119 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="main.css" />
+    <!-- Scripts -->
+    <script src="main.js" defer></script>
+    <title>Abed Fetrat - Portfolio</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
-  <!-- Styles -->
-  <link rel="stylesheet" href="main.css" />
-  <!-- Scripts -->
-  <script src="main.js" defer></script>
-  <title>Abed Fetrat - Portfolio</title>
-</head>
-
-<body>
-  <header class="primary-nav">
-    <div class="container">
-      <a href="#" class="primary-nav__logo">abed.</a>
-      <ul class="primary-nav__links">
-        <li><a href="#" class="active">about</a></li>
-        <li><a href="#">projects</a></li>
-        <li><a href="#">contact</a></li>
-      </ul>
-    </div>
-  </header>
-  <main class="main container">
-    <section class="about">
-      <div class="about__inner">
-        <div class="about__photo anim-photo">
-          <!-- Icons -->
-          <div class="anim-photo__icons">
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/react.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">React</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/mui.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">Material UI</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/redux.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">Redux</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/tailwindcss.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">Tailwind CSS</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/sass.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">SASS</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/javascript.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">Javascript</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/css.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">CSS</span>
-            </div>
-            <div class="anim-photo__icon-wrapper">
-              <img class="anim-photo__icon" src="assets/html.svg" width="32" height="32" alt="" />
-              <span class="anim-photo__icon-tooltip">HTML</span>
-            </div>
-          </div>
-          <!-- Outer ring -->
-          <svg width="402" height="402" viewBox="0 0 402 402" fill="none" class="anim-photo__outer-ring">
-            <circle cx="200" cy="200" r="199" stroke="url(#paint0_linear_3_184)" stroke-width="2" />
-            <defs>
-              <linearGradient id="paint0_linear_3_184" x1="94.1176" y1="286.956" x2="400" y2="286.956"
-                gradientUnits="userSpaceOnUse">
-                <stop stop-color="#7D67FF" />
-                <stop offset="1" stop-color="#61C6FF" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <!-- Inner ring -->
-          <svg width="402" height="402" viewBox="0 0 402 402" fill="none" class="anim-photo__inner-ring">
-            <circle cx="200" cy="200" r="199" stroke="url(#paint0_linear_3_184)" stroke-width="2" />
-            <defs>
-              <linearGradient id="paint0_linear_3_184" x1="94.1176" y1="286.956" x2="400" y2="286.956"
-                gradientUnits="userSpaceOnUse">
-                <stop stop-color="#7D67FF" />
-                <stop offset="1" stop-color="#61C6FF" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <!-- Photo -->
-          <div class="anim-photo__photo-wrapper">
-            <img class="anim-photo__photo" src="assets/portrait.jpg" width="300" height="300"
-              alt="portrait of abed fetrat" />
-          </div>
-        </div>
-        <div class="about__content">
-          <h1 class="about__heading">
-            <span>Howdy!</span> <br />
-            I'm <span class="highlight">Abed Fetrat</span>
-          </h1>
-          <p class="about__text">
-            I am a passionate
-            <span class="highlight">Frontend Developer</span> dedicated to
-            crafting exceptional user experiences through clean and elegant
-            code. I bridge the gap between design and technology, translating
-            beautiful designs into pixel perfect responsive websites.
-          </p>
-          <div class="about__ctas">
-            <a href="#" class="cta">View Projects</a>
-            <a href="#" class="cta cta--secondary">Contact Me</a>
-          </div>
-        </div>
+  <body>
+    <header class="primary-nav">
+      <div class="container">
+        <a href="#" class="primary-nav__logo">abed.</a>
+        <ul class="primary-nav__links">
+          <li><a href="#" class="active">about</a></li>
+          <li><a href="#">projects</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
       </div>
-    </section>
-  </main>
-</body>
-
+    </header>
+    <main class="main container">
+      <section class="about">
+        <div class="about__inner">
+          <div class="about__photo anim-photo">
+            <!-- Icons -->
+            <div class="anim-photo__icons">
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/react.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">React</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/mui.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">Material UI</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/redux.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">Redux</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/tailwindcss.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">Tailwind CSS</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/sass.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">SASS</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/javascript.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">Javascript</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/css.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">CSS</span>
+              </div>
+              <div class="anim-photo__icon-wrapper">
+                <img
+                  class="anim-photo__icon"
+                  src="assets/html.svg"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <span class="anim-photo__icon-tooltip">HTML</span>
+              </div>
+            </div>
+            <!-- Outer ring -->
+            <svg
+              width="402"
+              height="402"
+              viewBox="0 0 402 402"
+              fill="none"
+              class="anim-photo__outer-ring"
+            >
+              <circle
+                cx="200"
+                cy="200"
+                r="199"
+                stroke="url(#paint0_linear_3_184)"
+                stroke-width="2"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_3_184"
+                  x1="94.1176"
+                  y1="286.956"
+                  x2="400"
+                  y2="286.956"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#7D67FF" />
+                  <stop offset="1" stop-color="#61C6FF" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <!-- Inner ring -->
+            <svg
+              width="402"
+              height="402"
+              viewBox="0 0 402 402"
+              fill="none"
+              class="anim-photo__inner-ring"
+            >
+              <circle
+                cx="200"
+                cy="200"
+                r="199"
+                stroke="url(#paint0_linear_3_184)"
+                stroke-width="2"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_3_184"
+                  x1="94.1176"
+                  y1="286.956"
+                  x2="400"
+                  y2="286.956"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#7D67FF" />
+                  <stop offset="1" stop-color="#61C6FF" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <!-- Photo -->
+            <div class="anim-photo__photo-wrapper">
+              <img
+                class="anim-photo__photo"
+                src="assets/portrait.jpg"
+                width="300"
+                height="300"
+                alt="portrait of abed fetrat"
+              />
+            </div>
+          </div>
+          <div class="about__content">
+            <h1 class="about__heading">
+              <span>Howdy!</span> <br />
+              I'm <span class="highlight">Abed Fetrat</span>
+            </h1>
+            <p class="about__text">
+              I am a passionate
+              <span class="highlight">Frontend Developer</span> dedicated to
+              crafting exceptional user experiences through clean and elegant
+              code. I bridge the gap between design and technology, translating
+              beautiful designs into pixel perfect responsive websites.
+            </p>
+            <div class="about__ctas">
+              <a href="#" class="cta">View Projects</a>
+              <a href="#" class="cta cta--secondary">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="projects">
+        <h2 class="projects__heading">My Projects</h2>
+        <div class="projects__grid">
+          <article class="project">
+            <div class="project__photo-wrapper">
+              <img class="project__photo" src="assets/project1.jpg" alt="" />
+            </div>
+            <h3 class="project__title">Reddit Mini</h3>
+            <p class="project__description">
+              A minimal Reddit client where users can browse, search and view
+              posts from their favorite subreddits.
+            </p>
+            <div class="project__stack">
+              <p class="project__stack-heading">Built with</p>
+              <ul class="project__stack-items">
+                <li class="project__stack-item">
+                  <img
+                    class="project__stack-icon"
+                    src="assets/react.svg"
+                    alt="React"
+                  />
+                  <div class="project__stack-title">React</div>
+                </li>
+                <li class="project__stack-item">
+                  <img
+                    class="project__stack-icon"
+                    src="assets/redux.svg"
+                    alt="Redux"
+                  />
+                  <div class="project__stack-title">Redux</div>
+                </li>
+                <li class="project__stack-item">
+                  <img
+                    class="project__stack-icon"
+                    src="assets/mui.svg"
+                    alt="Material UI"
+                  />
+                  <div class="project__stack-title">Material UI</div>
+                </li>
+              </ul>
+            </div>
+            <div class="project__ctas">
+              <a href="https://abedfetrat.github.io/reddit-mini" class="cta cta--small">View Demo</a>
+              <a href="https://github.com/abedfetrat/reddit-mini" class="cta cta--secondary cta--small">View Code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
