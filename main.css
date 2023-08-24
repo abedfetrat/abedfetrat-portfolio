@@ -111,7 +111,7 @@ a:visited {
 .main {
   min-height: 100vh;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container {
@@ -280,45 +280,100 @@ a:visited {
 }
 .projects__heading {
   font-size: 24px;
+  font-weight: 500;
 }
-
+@media screen and (min-width: 768px) {
+  .projects__heading {
+    font-size: 30px;
+  }
+}
 .projects__grid {
+  display: grid;
+  row-gap: 64px;
   margin-top: 32px;
 }
+@media screen and (min-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
+    margin-top: 40px;
+  }
+}
+.projects__more {
+  margin-top: 48px;
+}
+@media screen and (min-width: 768px) {
+  .projects__more {
+    max-width: 285px;
+    margin-inline: auto;
+    margin-top: 64px;
+  }
+}
 
+.project {
+  display: flex;
+  flex-direction: column;
+}
 .project__photo-wrapper {
   border-radius: 15px;
   padding: 0px 0px 4px 0px;
   background: linear-gradient(to right, hsl(249, 100%, 70%), hsl(202, 100%, 69%));
-  box-shadow: 15px 15px 30px -3px rgba(125, 102, 255, 0.1);
+  box-shadow: 0px 15px 30px -3px rgba(125, 102, 255, 0.1);
 }
 .project__photo-wrapper .project__photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   border-radius: 15px;
+}
+.project__content {
+  flex: 1;
 }
 .project__title {
   margin-top: 24px;
   font-size: 18px;
 }
+@media screen and (min-width: 768px) {
+  .project__title {
+    font-size: 20px;
+  }
+}
 .project__description {
   margin-top: 8px;
+  color: hsla(0, 0%, 0%, 0.7);
+}
+@media screen and (min-width: 768px) {
+  .project__description {
+    margin-top: 12px;
+  }
 }
 .project__stack {
   margin-top: 16px;
+}
+@media screen and (min-width: 768px) {
+  .project__stack {
+    margin-top: 18px;
+  }
 }
 .project__stack-heading {
   font-weight: 500;
 }
 .project__stack-items {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 16px;
   margin-top: 16px;
-  overflow-x: scroll;
 }
 .project__stack-item {
   display: flex;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  min-height: 40px;
   align-items: center;
   -moz-column-gap: 8px;
        column-gap: 8px;
