@@ -42,8 +42,7 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -108,10 +107,32 @@ a:visited {
   -webkit-text-fill-color: transparent;
 }
 
+@keyframes slide-up {
+  from {
+    transform: translateY(200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-up {
+  animation: slide-up 800ms ease, fade-in 1500ms ease;
+  animation-fill-mode: both;
+  visibility: visible !important;
+}
+
 .main {
   min-height: 100vh;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .container {
@@ -150,9 +171,7 @@ a:visited {
   align-items: center;
 }
 .primary-nav__logo {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -168,13 +187,11 @@ a:visited {
 }
 .primary-nav__links {
   display: flex;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 @media screen and (min-width: 768px) {
   .primary-nav__links {
-    -moz-column-gap: 32px;
-         column-gap: 32px;
+    column-gap: 32px;
   }
 }
 .primary-nav__links a {
@@ -265,8 +282,7 @@ a:visited {
 @media screen and (min-width: 768px) {
   .about__ctas {
     flex-direction: row;
-    -moz-column-gap: 32px;
-         column-gap: 32px;
+    column-gap: 32px;
   }
   .about__ctas .cta {
     width: 100%;
@@ -289,19 +305,20 @@ a:visited {
 }
 .projects__grid {
   display: grid;
-  row-gap: 64px;
+  row-gap: 48px;
   margin-top: 32px;
 }
 @media screen and (min-width: 768px) {
   .projects__grid {
     grid-template-columns: 1fr 1fr;
-    -moz-column-gap: 32px;
-         column-gap: 32px;
+    column-gap: 32px;
+    row-gap: 64px;
     margin-top: 40px;
   }
 }
 .projects__more {
   margin-top: 48px;
+  visibility: hidden;
 }
 @media screen and (min-width: 768px) {
   .projects__more {
@@ -314,6 +331,7 @@ a:visited {
 .project {
   display: flex;
   flex-direction: column;
+  visibility: hidden;
 }
 .project__photo-wrapper {
   border-radius: 15px;
@@ -325,10 +343,8 @@ a:visited {
   width: 100%;
   height: auto;
   aspect-ratio: 5/3;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
+  object-fit: cover;
+  object-position: top;
   border-radius: 15px;
 }
 .project__content {
@@ -371,13 +387,11 @@ a:visited {
 }
 .project__stack-item {
   display: flex;
-  min-width: -moz-fit-content;
   min-width: fit-content;
   min-height: 40px;
   align-items: center;
-  -moz-column-gap: 8px;
-       column-gap: 8px;
-  background-color: #fff;
+  column-gap: 8px;
+  background-color: hsla(100, 100%, 100%, 0.8);
   padding: 6px 12px;
   border-radius: 12px;
   box-shadow: 2px 2px 80px -3px rgba(125, 102, 255, 0.1);
@@ -391,9 +405,12 @@ a:visited {
 .project__ctas {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  -moz-column-gap: 16px;
-       column-gap: 16px;
+  column-gap: 16px;
   margin-top: 32px;
+}
+
+.project.fade-up:nth-child(even) {
+  animation-delay: 250ms;
 }
 
 /* ///////////////// CTA BUTTON ///////////////// */
