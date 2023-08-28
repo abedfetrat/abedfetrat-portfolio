@@ -538,6 +538,39 @@ button {
   }
 }
 
+/* ///////////////// FORM SUCCES PAGE ///////////////// */
+.success .main {
+  display: grid;
+  place-items: center;
+}
+.success .alert {
+  background-color: hsl(100, 100%, 100%);
+  border-radius: 15px;
+  padding: 24px;
+  box-shadow: 0px 15px 30px -3px rgba(125, 102, 255, 0.1);
+  animation: slide-up 400ms ease, fade-in 1000ms ease;
+  animation-fill-mode: both;
+}
+.success .alert h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+@media screen and (min-width: 768px) {
+  .success .alert h1 {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+}
+.success .alert a {
+  display: inline-flex;
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  color: hsl(249, 100%, 70%);
+  gap: 8px;
+}
+
 /* ///////////////// CTA BUTTON ///////////////// */
 .cta {
   display: flex;

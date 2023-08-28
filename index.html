@@ -494,9 +494,10 @@
           action="/success"
           method="POST"
           name="contact"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
           onsubmit="submit"
         >
-          <input type="hidden" name="form-name" value="contact" />
           <input class="hidden" name="bot-field" />
           <input
             class="contact-form__name"
@@ -525,3 +526,4 @@
     </main>
   </body>
 </html>
+e
