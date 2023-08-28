@@ -4,6 +4,11 @@
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
+  padding-bottom: 32px;
+
+  @include bp-up("medium") {
+    padding-bottom: 64px;
+  }
 }
 
 .container {
@@ -170,11 +175,11 @@
 
 .projects {
   padding-top: 64px;
-  padding-bottom: 200px;
 
   &__heading {
     font-size: 24px;
     font-weight: 500;
+    visibility: hidden;
 
     @include bp-up("medium") {
       font-size: 30px;
@@ -294,6 +299,94 @@
   }
 }
 
+.project.fade-up:nth-child(1) {
+  animation-delay: 200ms;
+}
+
 .project.fade-up:nth-child(even) {
   animation-delay: 250ms;
+}
+
+.project.fade-up:nth-child(2) {
+  animation-delay: 450ms;
+}
+
+/* ///////////////// CONTACT SECTION ///////////////// */
+
+.contact {
+  margin-top: 64px;
+  visibility: hidden;
+
+  &__heading {
+    grid-column: 1 / -1;
+    font-size: 24px;
+    font-weight: 500;
+
+    @include bp-up("medium") {
+      font-size: 30px;
+    }
+  }
+
+  &__text {
+    margin-top: 16px;
+    color: $clr-body-text;
+  }
+
+  &__socials {
+    width: fit-content;
+    margin-top: 32px;
+    margin-inline: auto;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+
+    @include bp-up("medium") {
+      margin-top: 48px;
+      margin-inline: 0;
+    }
+  }
+
+  .socials-item a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .socials-item__text {
+      display: none;
+      transition: color 200ms ease;
+
+      @include bp-up("medium") {
+        display: block;
+      }
+    }
+
+    .socials-item__icon {
+      transition: fill 200ms ease;
+    }
+
+    @include on-event {
+      .socials-item__text {
+        color: $clr-primary-purple;
+      }
+
+      .socials-item__icon {
+        fill: $clr-primary-purple;
+      }
+    }
+  }
+
+  &__right {
+    margin-top: 32px;
+
+    @include bp-up("medium") {
+      margin-top: 0;
+    }
+  }
+
+  @include bp-up("medium") {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 120px;
+  }
 }

@@ -12,6 +12,7 @@
   box-shadow: 0px 5px 20px rgba(124, 103, 255, 0.3);
   font-weight: 500;
   transition: opacity 200ms ease, scale 200ms ease, box-shadow 200ms ease;
+  outline: none;
 
   &:visited {
     color: hsl(0, 0%, 100%);
@@ -250,5 +251,41 @@
     width: 100%;
     height: auto;
     border-radius: 99999px;
+  }
+}
+
+
+/* ///////////////// CONTACT FORM ///////////////// */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__name,
+  &__email,
+  &__message {
+    width: 100%;
+    background-color: hsla(100, 100%, 100%, 0.8);
+    background: none;
+    border: 1px solid hsla(0, 0%, 0%, 1);
+    border-radius: 8px;
+    padding: 12px 16px;
+
+    &::placeholder {
+      opacity: 1;
+      color: $clr-body-text;
+    }
+
+    &:focus {
+      outline: 1px solid $clr-primary-purple;
+    }
+
+    @include bp-up("medium") {
+      padding: 16px 24px;
+    }
+  }
+
+  &__message {
+    min-height: 120px;
   }
 }

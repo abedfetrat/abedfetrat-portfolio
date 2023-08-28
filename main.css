@@ -42,7 +42,8 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -97,8 +98,33 @@ a:visited {
   color: inherit;
   text-decoration: none;
 }
+a:focus,
+a:visited:focus {
+  outline: 2px dotted hsl(249, 100%, 70%);
+  outline-offset: 4px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+::-moz-selection {
+  color: hsla(0, 0%, 0%, 0.9);
+  background-color: rgba(125, 102, 255, 0.5);
+}
+
+::selection {
+  color: hsla(0, 0%, 0%, 0.9);
+  background-color: rgba(125, 102, 255, 0.5);
+}
 
 /* ///////////////// UTILITY ///////////////// */
+.hidden {
+  display: none;
+}
+
 .highlight {
   font-weight: 500;
   background: linear-gradient(to right, hsl(249, 100%, 70%), hsl(202, 100%, 69%));
@@ -133,6 +159,12 @@ a:visited {
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
+  padding-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    padding-bottom: 64px;
+  }
 }
 
 .container {
@@ -171,7 +203,9 @@ a:visited {
   align-items: center;
 }
 .primary-nav__logo {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -187,11 +221,13 @@ a:visited {
 }
 .primary-nav__links {
   display: flex;
-  column-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 @media screen and (min-width: 768px) {
   .primary-nav__links {
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
 }
 .primary-nav__links a {
@@ -282,7 +318,8 @@ a:visited {
 @media screen and (min-width: 768px) {
   .about__ctas {
     flex-direction: row;
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
   .about__ctas .cta {
     width: 100%;
@@ -292,11 +329,11 @@ a:visited {
 /* ///////////////// PROJECTS SECTION ///////////////// */
 .projects {
   padding-top: 64px;
-  padding-bottom: 200px;
 }
 .projects__heading {
   font-size: 24px;
   font-weight: 500;
+  visibility: hidden;
 }
 @media screen and (min-width: 768px) {
   .projects__heading {
@@ -311,7 +348,8 @@ a:visited {
 @media screen and (min-width: 768px) {
   .projects__grid {
     grid-template-columns: 1fr 1fr;
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
     row-gap: 64px;
     margin-top: 40px;
   }
@@ -343,8 +381,10 @@ a:visited {
   width: 100%;
   height: auto;
   aspect-ratio: 5/3;
-  object-fit: cover;
-  object-position: top;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   border-radius: 15px;
 }
 .project__content {
@@ -387,10 +427,12 @@ a:visited {
 }
 .project__stack-item {
   display: flex;
+  min-width: -moz-fit-content;
   min-width: fit-content;
   min-height: 40px;
   align-items: center;
-  column-gap: 8px;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
   background-color: hsla(100, 100%, 100%, 0.8);
   padding: 6px 12px;
   border-radius: 12px;
@@ -405,12 +447,95 @@ a:visited {
 .project__ctas {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 16px;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
   margin-top: 32px;
+}
+
+.project.fade-up:nth-child(1) {
+  animation-delay: 200ms;
 }
 
 .project.fade-up:nth-child(even) {
   animation-delay: 250ms;
+}
+
+.project.fade-up:nth-child(2) {
+  animation-delay: 450ms;
+}
+
+/* ///////////////// CONTACT SECTION ///////////////// */
+.contact {
+  margin-top: 64px;
+  visibility: hidden;
+}
+.contact__heading {
+  grid-column: 1/-1;
+  font-size: 24px;
+  font-weight: 500;
+}
+@media screen and (min-width: 768px) {
+  .contact__heading {
+    font-size: 30px;
+  }
+}
+.contact__text {
+  margin-top: 16px;
+  color: hsla(0, 0%, 0%, 0.7);
+}
+.contact__socials {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 32px;
+  margin-inline: auto;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 768px) {
+  .contact__socials {
+    margin-top: 48px;
+    margin-inline: 0;
+  }
+}
+.contact .socials-item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.contact .socials-item a .socials-item__text {
+  display: none;
+  transition: color 200ms ease;
+}
+@media screen and (min-width: 768px) {
+  .contact .socials-item a .socials-item__text {
+    display: block;
+  }
+}
+.contact .socials-item a .socials-item__icon {
+  transition: fill 200ms ease;
+}
+.contact .socials-item a:hover .socials-item__text, .contact .socials-item a:focus .socials-item__text, .contact .socials-item a:active .socials-item__text {
+  color: hsl(249, 100%, 70%);
+}
+.contact .socials-item a:hover .socials-item__icon, .contact .socials-item a:focus .socials-item__icon, .contact .socials-item a:active .socials-item__icon {
+  fill: hsl(249, 100%, 70%);
+}
+.contact__right {
+  margin-top: 32px;
+}
+@media screen and (min-width: 768px) {
+  .contact__right {
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 120px;
+  }
 }
 
 /* ///////////////// CTA BUTTON ///////////////// */
@@ -425,6 +550,7 @@ a:visited {
   box-shadow: 0px 5px 20px rgba(124, 103, 255, 0.3);
   font-weight: 500;
   transition: opacity 200ms ease, scale 200ms ease, box-shadow 200ms ease;
+  outline: none;
 }
 .cta:visited {
   color: hsl(0, 0%, 100%);
@@ -627,4 +753,38 @@ a:visited {
   width: 100%;
   height: auto;
   border-radius: 99999px;
+}
+
+/* ///////////////// CONTACT FORM ///////////////// */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-form__name, .contact-form__email, .contact-form__message {
+  width: 100%;
+  background-color: hsla(100, 100%, 100%, 0.8);
+  background: none;
+  border: 1px solid hsl(0, 0%, 0%);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+.contact-form__name::-moz-placeholder, .contact-form__email::-moz-placeholder, .contact-form__message::-moz-placeholder {
+  opacity: 1;
+  color: hsla(0, 0%, 0%, 0.7);
+}
+.contact-form__name::placeholder, .contact-form__email::placeholder, .contact-form__message::placeholder {
+  opacity: 1;
+  color: hsla(0, 0%, 0%, 0.7);
+}
+.contact-form__name:focus, .contact-form__email:focus, .contact-form__message:focus {
+  outline: 1px solid hsl(249, 100%, 70%);
+}
+@media screen and (min-width: 768px) {
+  .contact-form__name, .contact-form__email, .contact-form__message {
+    padding: 16px 24px;
+  }
+}
+.contact-form__message {
+  min-height: 120px;
 }/*# sourceMappingURL=main.css.map */
