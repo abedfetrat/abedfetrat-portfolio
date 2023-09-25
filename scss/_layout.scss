@@ -4,7 +4,7 @@
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 32px;
+  padding-bottom: 48px;
 
   @include bp-up("medium") {
     padding-bottom: 64px;
@@ -50,10 +50,6 @@
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.2em;
-    background: $gradient-primary;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
     @include bp-up("medium") {
       font-size: 18px;
@@ -63,6 +59,7 @@
   &__links {
     display: flex;
     column-gap: 20px;
+    color: $clr-body-text;
 
     @include bp-up("medium") {
       column-gap: 32px;
@@ -72,16 +69,14 @@
       transition: color 200ms ease;
 
       @include on-event {
-        color: $clr-primary-purple;
+        font-weight: 500;
+        color: $clr-text;
       }
     }
 
     .active {
-      background: $gradient-primary;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       font-weight: 500;
+      color: $clr-text;
     }
   }
 }
@@ -89,8 +84,8 @@
 .primary-nav.scrolled {
   position: fixed;
   top: 0;
-  background-color: hsl(0, 0%, 100%);
-  box-shadow: 0px 2px 20px 0px adjust-color($clr-primary-purple, $alpha: -0.9);
+  background-color: adjust-color($clr-bg, $alpha: -0.1);
+  backdrop-filter: blur(5px);
 }
 
 /* ///////////////// ABOUT SECTION ///////////////// */
@@ -132,6 +127,7 @@
 
     span {
       font-size: 16px;
+      color: $clr-body-text;
 
       @include bp-up("medium") {
         font-size: 22px;
@@ -150,6 +146,11 @@
   &__text {
     margin-top: 16px;
     color: $clr-body-text;
+
+    span {
+      color: $clr-text;
+      font-weight: 500;
+    }
 
     @include bp-up("medium") {
       margin-top: 24px;
@@ -226,7 +227,6 @@
     border-radius: 15px;
     padding: 0px 0px 4px 0px;
     background: $gradient-primary;
-    box-shadow: 0px 15px 30px -3px adjust-color($clr-primary-purple, $alpha: -0.9);
 
     .project__photo {
       width: 100%;
@@ -274,7 +274,8 @@
   &__stack-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    column-gap: 32px;
+    row-gap: 16px;
     margin-top: 16px;
   }
 
@@ -284,10 +285,6 @@
     min-height: 40px;
     align-items: center;
     column-gap: 8px;
-    background-color: hsla(100, 100%, 100%, 0.8);
-    padding: 6px 12px;
-    border-radius: 12px;
-    box-shadow: 2px 2px 80px -3px adjust-color($clr-primary-purple, $alpha: -0.9);
   }
 
   &__stack-icon {
@@ -368,16 +365,17 @@
     }
 
     .socials-item__icon {
+      fill: $clr-text;
       transition: fill 200ms ease;
     }
 
     @include on-event {
       .socials-item__text {
-        color: $clr-primary-purple;
+        color: $clr-cyan;
       }
 
       .socials-item__icon {
-        fill: $clr-primary-purple;
+        fill: $clr-cyan;
       }
     }
   }
@@ -398,6 +396,22 @@
   }
 }
 
+/* ///////////////// FOOTER ///////////////// */
+
+.footer {
+  padding-bottom: 24px;
+
+  &__text {
+    font-size: 12px;
+    color: hsla(249, 100%, 96%, 0.4);
+    text-align: center;
+
+    @include bp-up("medium") {
+      font-size: 14px;
+    }
+  }
+}
+
 /* ///////////////// FORM SUCCES PAGE ///////////////// */
 
 .success {
@@ -407,22 +421,24 @@
   }
 
   .alert {
-    background-color: hsl(100, 100%, 100%);
-    border-radius: 15px;
-    padding: 24px;
-    box-shadow: 0px 15px 30px -3px adjust-color($clr-primary-purple, $alpha: -0.9);
+    max-width: 65ch;
+    text-align: center;
     animation: slide-up 400ms ease, fade-in 1000ms ease;
     animation-fill-mode: both;
 
     h1 {
       font-size: 24px;
       font-weight: 500;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
 
       @include bp-up("medium") {
         font-size: 30px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
+    }
+
+    p {
+      color: $clr-body-text;
     }
 
     a {
@@ -430,7 +446,7 @@
       margin-top: 32px;
       font-size: 16px;
       font-weight: 500;
-      color: $clr-primary-purple;
+      color: $clr-cyan;
       gap: 8px;
     }
   }

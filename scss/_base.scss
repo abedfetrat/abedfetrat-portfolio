@@ -80,13 +80,15 @@ select {
 }
 
 /* ///////////////// VARIABLES ///////////////// */
-$clr-body-text: hsla(0, 0%, 0%, 0.7);
-$clr-primary-purple: hsl(249, 100%, 70%);
-$clr-primary-blue: hsl(202, 100%, 69%);
+$clr-bg: hsl(248, 73%, 4%);
+$clr-text: hsla(249, 100%, 96%, 1);
+$clr-body-text: hsla(249, 100%, 96%, 0.8);
+$clr-cyan: hsl(185, 100%, 65%);
+$clr-pink: hsl(278, 100%, 67%);
 $gradient-primary: linear-gradient(
   to right,
-  $clr-primary-purple,
-  $clr-primary-blue
+  $clr-cyan,
+  $clr-pink
 );
 $max-width: 1110px;
 $breakpoints: (
@@ -119,11 +121,8 @@ $breakpoints: (
 body {
   font-family: "Ubuntu", sans-serif;
   font-size: 14px;
-  color: hsl(0, 0%, 0%, 0.9);
-  background-image: url("assets/background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  color: $clr-text;
+  background-color: $clr-bg;
 
   @include bp-up("medium") {
     font-size: 16px;
@@ -136,7 +135,7 @@ a:visited {
   text-decoration: none;
 
   &:focus {
-    outline: 2px dotted $clr-primary-purple;
+    outline: 2px dotted $clr-cyan;
     outline-offset: 4px;
   }
 }
@@ -148,8 +147,8 @@ button {
 }
 
 ::selection {
-  color: hsla(0, 0%, 0%, 0.9);
-  background-color: adjust-color($clr-primary-purple, $alpha: -0.5);
+  color: $clr-bg;
+  background-color: $clr-cyan;
 }
 
 /* ///////////////// UTILITY ///////////////// */
