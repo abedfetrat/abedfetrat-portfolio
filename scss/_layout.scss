@@ -4,7 +4,7 @@
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 32px;
+  padding-bottom: 48px;
 
   @include bp-up("medium") {
     padding-bottom: 64px;
@@ -393,6 +393,22 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     margin-top: 120px;
+  }
+}
+
+/* ///////////////// FOOTER ///////////////// */
+
+.footer {
+  padding-bottom: 24px;
+
+  &__text {
+    font-size: 12px;
+    color: hsla(249, 100%, 96%, 0.4);
+    text-align: center;
+
+    @include bp-up("medium") {
+      font-size: 14px;
+    }
   }
 }
 

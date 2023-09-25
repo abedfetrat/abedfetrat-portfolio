@@ -156,7 +156,7 @@ button {
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 32px;
+  padding-bottom: 48px;
 }
 @media screen and (min-width: 768px) {
   .main {
@@ -539,6 +539,21 @@ button {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     margin-top: 120px;
+  }
+}
+
+/* ///////////////// FOOTER ///////////////// */
+.footer {
+  padding-bottom: 24px;
+}
+.footer__text {
+  font-size: 12px;
+  color: hsla(249, 100%, 96%, 0.4);
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .footer__text {
+    font-size: 14px;
   }
 }
 
