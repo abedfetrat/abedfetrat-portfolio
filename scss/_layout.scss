@@ -421,22 +421,24 @@
   }
 
   .alert {
-    background-color: hsl(100, 100%, 100%);
-    border-radius: 15px;
-    padding: 24px;
-    /* box-shadow: 0px 15px 30px -3px adjust-color($clr-primary-purple, $alpha: -0.9); */
+    max-width: 65ch;
+    text-align: center;
     animation: slide-up 400ms ease, fade-in 1000ms ease;
     animation-fill-mode: both;
 
     h1 {
       font-size: 24px;
       font-weight: 500;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
 
       @include bp-up("medium") {
         font-size: 30px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
+    }
+
+    p {
+      color: $clr-body-text;
     }
 
     a {
