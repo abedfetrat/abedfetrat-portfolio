@@ -16,7 +16,7 @@
   overflow: hidden;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -45,7 +45,8 @@
     border: 1px solid $clr-text;
     box-shadow: none;
     color: $clr-text;
-    transition: background-color 200ms ease, border-color 200ms ease, scale 200ms ease, box-shadow 200ms ease;
+    transition: background-color 200ms ease, border-color 200ms ease,
+      scale 200ms ease, box-shadow 200ms ease;
 
     &:visited {
       color: $clr-text;
@@ -94,6 +95,11 @@
   }
 }
 
+$fadeDuration: 2s;
+$fadeDelay: 600ms;
+$fadeEase: ease;
+$rotateDuration: 70s;
+$staggerDelay: 200ms;
 
 .anim-photo {
   display: grid;
@@ -107,14 +113,13 @@
   }
 
   @include on-event {
-
     *,
-    *>* {
+    * > * {
       animation-play-state: paused !important;
     }
   }
 
-  >* {
+  > * {
     width: 100%;
     height: auto;
     grid-area: 1 / 1;
@@ -187,56 +192,71 @@
     top: 0;
     left: 0;
     translate: 100% 100%;
-    animation: fadeIn 2s 600ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration $fadeDelay $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(2) {
     top: 0;
     left: 50%;
     translate: -50% -50%;
-    animation: fadeIn 2s 800ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + $staggerDelay) $fadeEase
+        both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(3) {
     top: 0;
     right: 0;
     translate: -100% 100%;
-    animation: fadeIn 2s 1000ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + ($staggerDelay * 2))
+        $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(4) {
     top: 50%;
     right: 0;
     translate: 50% -50%;
-    animation: fadeIn 2s 1200ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + ($staggerDelay * 3))
+        $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(5) {
     bottom: 0;
     right: 0;
     translate: -100% -100%;
-    animation: fadeIn 2s 1400ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + ($staggerDelay * 4))
+        $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(6) {
     bottom: 0;
     left: 50%;
     translate: -50% 50%;
-    animation: fadeIn 2s 1600ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + ($staggerDelay * 5))
+        $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(7) {
     bottom: 0;
     left: 0;
     translate: 100% -100%;
-    animation: fadeIn 2s 1800ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + ($staggerDelay * 6))
+        $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__icon-wrapper:nth-of-type(8) {
     top: 50%;
     left: 0;
     translate: -50% -50%;
-    animation: fadeIn 2s 2000ms ease both, rotate 70s linear infinite reverse;
+    animation: fadeIn $fadeDuration calc($fadeDelay + ($staggerDelay * 7))
+        $fadeEase both,
+      rotate $rotateDuration linear infinite reverse;
   }
 
   &__outer-ring,
@@ -245,7 +265,7 @@
     height: auto;
     aspect-ratio: 1 / 1;
     background-color: $clr-bg;
-    border: 1px solid #FFFFFF33;
+    border: 1px solid #ffffff33;
     border-radius: 99999px;
     animation: grow 600ms both ease-out;
   }
@@ -272,7 +292,6 @@
     border-radius: 99999px;
   }
 }
-
 
 /* ///////////////// CONTACT FORM ///////////////// */
 .contact-form {
