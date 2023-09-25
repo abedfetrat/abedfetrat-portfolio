@@ -140,10 +140,11 @@
     }
 
     .anim-photo__icon-tooltip {
+      visibility: hidden;
       opacity: 0;
       position: absolute;
-      background-color: #000;
-      color: #fff;
+      background-color: $clr-text;
+      color: $clr-bg;
       text-align: center;
       font-size: 12px;
       border-radius: 6px;
@@ -176,6 +177,7 @@
       }
 
       .anim-photo__icon-tooltip {
+        visibility: visible;
         opacity: 1;
       }
     }
@@ -239,18 +241,18 @@
 
   &__outer-ring,
   &__inner-ring {
-    backface-visibility: hidden;
-  }
-
-  &__outer-ring {
     width: 100%;
-    height: 100%;
-    animation: grow 600ms both ease-out, rotate 70s linear infinite;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: $clr-bg;
+    border: 1px solid #FFFFFF33;
+    border-radius: 99999px;
+    animation: grow 600ms both ease-out;
   }
 
   &__inner-ring {
     width: calc(100% - 15%);
-    animation: grow 600ms 150ms both ease-out, rotate 70s linear infinite reverse;
+    animation-delay: 150ms;
   }
 
   &__photo-wrapper {
