@@ -9,17 +9,6 @@ window.onscroll = () => {
     }
 };
 
-// Set navbar active link based on which section is in view
-const navLinks = document.querySelector(".primary-nav__links");
-const pageSections = document.querySelectorAll("section");
-pageSections.forEach((el) => addObserver(el, { rootMargin: '-50% 0% -20% 0%' }, (entry) => {
-    if (entry.isIntersecting) {
-        const section = entry.target.id;
-        navLinks.querySelectorAll(".primary-nav__link").forEach(el => el.classList.remove("active"));
-        navLinks.querySelector(`a[href='#${section}']`).classList.add("active");
-    }
-}));
-
 // Animate projects and contact section when scrolled into view
 scrollTrigger();
 
