@@ -118,6 +118,10 @@ $breakpoints: (
 }
 
 /* ///////////////// GlOBAL STYLES ///////////////// */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   font-size: 14px;
