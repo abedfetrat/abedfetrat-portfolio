@@ -448,6 +448,7 @@ button {
 .contact {
   margin-top: 64px;
   visibility: hidden;
+  scroll-margin-top: 76px;
 }
 .contact__heading {
   grid-column: 1/-1;
